@@ -86,8 +86,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ExpenseCategories\" />
-    <Folder Include="Controllers\SavingsAccounts\" />
     <Folder Include="Errors\" />
     <Folder Include="Helpers\" />
     <Folder Include="Managers\" />
