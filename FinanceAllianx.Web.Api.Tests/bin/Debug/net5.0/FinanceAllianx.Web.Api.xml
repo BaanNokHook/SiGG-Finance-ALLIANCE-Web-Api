@@ -1,0 +1,1523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FinanceAllianx.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController">
+            <summary>
+            Exposes functionality to view and manage a user's budget.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController.#ctor(FinanceAllianx.Web.Api.Managers.IBudgetsManager,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController})">
+            <summary>
+            Initializes a new instance of the Budgets Controller class.
+            </summary>
+            <param name="budgetsManager"></param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController.GetBudgetForUser(System.Guid)">
+            <summary>
+            Gets the user's budget with all the listed expenses.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <response code="200">A collection of expenses linked to a user.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController.CreateExpenseForUser(System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest)">
+            <summary>
+            Attempts to create an expense for a user. If the user has no budget, it will create a budget for the user and then associate the expense with the budget.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The expense details.</param>
+            <response code="200">The expense was successfully created for the user.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController.DeleteExpenseForUser(System.Guid,System.Guid)">
+            <summary>
+            Attempts to delete an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+            <response code="200">The expense was successfully deleted for the user.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Budgets.BudgetsController.UpdateExpenseForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest)">
+            <summary>
+            Attempts to update the details of an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+            <param name="request">The updated expense details.</param>
+            <response code="200">The expense was successfully deleted for the user.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.Currencies.CurrenciesController">
+            <summary>
+            Exposes functionality to manage currencies.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Currencies.CurrenciesController.#ctor(FinanceAllianx.Web.Api.Managers.ICurrenciesManager,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.Currencies.CurrenciesController})">
+            <summary>
+            Creates a new instance of the Currencies Controller class.
+            </summary>
+            <param name="currenciesManager">The currencies manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Currencies.CurrenciesController.GetCurrencies">
+            <summary>
+            Gets all the registered currencies from the database.
+            </summary>
+            <response code="200">An enumeration of registered currencies.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.Currencies.CurrenciesController.AddCurrency(FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest)">
+            <summary>
+            Persists a new currency to the database. If a currency already exists, it will still return 202 - Accepted.
+            </summary>
+            <param name="request">A request to create a new currency.</param>
+            <response code="202">The currency was successfully created.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController">
+            <summary>
+            Exposes functionality to manage a user's debt accounts.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.#ctor(FinanceAllianx.Web.Api.Managers.IDebtAccountsManager,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController})">
+            <summary>
+            Creates a new instance of the Debt Accounts Controller.
+            </summary>
+            <param name="debtAccountsManager">The debt accounts manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.GetDebtAccountsForUser(System.Guid)">
+            <summary>
+            Gets the debt account linked to a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <response code="200">A collection of debt accounts linked to a user.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.AddDebtAccountForUser(System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest)">
+            <summary>
+            Persists a new debt account to the database for the given user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The debt account details.</param>
+            <response code="202">The debt account was successfully created for the user.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.AddAmountToDebtAccount(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest)">
+            <summary>
+            Increases the amount owed on a debt account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The debt account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.SubtractAmountFromDebtAccountForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest)">
+            <summary>
+            Reduces the amount of money owed on a debt account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The debt account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.DeleteDebtAccountForUser(System.Guid,System.Guid)">
+            <summary>
+            Attempts to delete a user's debt account from their portfolio.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <response code="200">The debt account was successfully deleted.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.DebtAccounts.DebtAccountsController.UpdateDebtAccountForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest)">
+            <summary>
+            Updates the debt account details for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The debt account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController">
+            <summary>
+            Exposes functionality to manage expenses categories.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController.#ctor(FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController})">
+            <summary>
+            Creates a new instance of the Expense Categories Controller class.
+            </summary>
+            <param name="expenseCategoriesManager">The expense categories manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController.GetExpenseCategories">
+            <summary>
+            Gets all listed expense categories.
+            </summary>
+            <response code="200">A collection of available expense categories.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController.GetExpenseCategoriesForUser(System.Guid)">
+            <summary>
+            Gets all expense categories that are mapped to the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <response code="200">A collection of available expense categories.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController.AddExpenseCategoryForUser(System.Guid,FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest)">
+            <summary>
+            Persists a new expense category to the database if it does not already exist and links that newly created expense category to the user. This newly created expense category will be available for all users.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The expense category details.</param>
+            <response code="202">The expense category was successfully created.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.ExpenseCategories.ExpenseCategoriesController.DeleteExpenseCategoryForUser(System.Guid,System.Guid)">
+            <summary>
+            Deletes the mapping between the user and the expense category from the database.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseCategoryId">The expense category's unique identifier.</param>
+            <response code="200">The mapping was successfully deleted.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController">
+            <summary>
+            Exposes functionality to manage a user's savings accounts.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.#ctor(FinanceAllianx.Web.Api.Managers.ISavingsAccountManager,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController})">
+            <summary>
+            Initializes a new instance of the Savings Account Controller class.
+            </summary>
+            <param name="savingsAccountManager">The savings account manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.GetSavingsAccountsForUser(System.Guid)">
+            <summary>
+            Gets the savings account linked to a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <response code="200">A collection of savings accounts linked to a user.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.AddSavingsAccountForUser(System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest)">
+            <summary>
+            Persists a new savings account to the database for the given user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The savings account details.</param>
+            <response code="202">The savings account was successfully created for the user.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.AddAmountToSavingsAccountForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest)">
+            <summary>
+            Increases the current balance of a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The savings account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.SubtractAmountFromSavingsAccountForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest)">
+            <summary>
+            Reduces the current balance of a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The savings account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.DeleteSavingsAccountForUser(System.Guid,System.Guid)">
+            <summary>
+            Attempts to delete a user's savings account from their portfolio.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <response code="200">The savings account was successfully deleted.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.SavingsAccounts.SavingsAccountController.UpdateSavingsAccountForUser(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest)">
+            <summary>
+            Updates the savings account details for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the request.</param>
+            <response code="200">The savings account was successfully updated.</response>
+            <response code="400">The request was badly formed.</response>
+            <response code="401">The token provided does not provide access to this resource.</response>
+            <response code="403">The request was forbidden from proceeding.</response>
+            <response code="500">Something went wrong with processing the request, likely due to environmental issues.</response>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Controllers.TestTokensController">
+            <summary>
+            A test API to resolve a JWT token.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.TestTokensController.#ctor(Shared.WebApi.Core.Security.IJwtService,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Controllers.TestTokensController})">
+            <summary>
+            Initializes a new instance of the TestTokensController.
+            </summary>
+            <param name="jwtService">The JWT service.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Controllers.TestTokensController.GetRandomTokenAsync">
+            <summary>
+            Generates a random JWT token.
+            </summary>
+            <returns>A random JWT token.</returns>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Errors.ErrorCodes">
+            <summary>
+            An enumeration of error codes.
+            </summary>
+        </member>
+        <member name="F:FinanceAllianx.Web.Api.Errors.ErrorCodes.GeneralError">
+            <summary>
+            A general, unspecific error occurred.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Errors.ErrorMessageSelector">
+            <summary>
+            An implementation of the error message selector.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Errors.ErrorMessageSelector.GetErrorMessage(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Helpers.MySqlGuidTypeHandler">
+            <summary>
+            Provides a helper to handle MySQL unique identifiers.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Helpers.MySqlGuidTypeHandler.SetValue(System.Data.IDbDataParameter,System.Guid)">
+            <summary>
+            Set's the value of the guid.
+            </summary>
+            <param name="parameter">The parameter.</param>
+            <param name="value">The globally unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Helpers.MySqlGuidTypeHandler.Parse(System.Object)">
+            <summary>
+            Parses the string to a C# Guid.
+            </summary>
+            <param name="value">The string value.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.BudgetsManager">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.BudgetsManager.#ctor(FinanceAllianx.Web.Api.Repositories.IBudgetsRepository,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Managers.BudgetsManager})">
+            <summary>
+            Initializes a new instance of the Budgets Manager class.
+            </summary>
+            <param name="budgetsRepository">The budgets repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.BudgetsManager.GetBudgetForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.BudgetsManager.CreateExpenseForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.BudgetsManager.DeleteExpenseForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.BudgetsManager.UpdateExpenseForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.CurrenciesManager">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.CurrenciesManager.#ctor(FinanceAllianx.Web.Api.Repositories.ICurrenciesRepository,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Managers.CurrenciesManager})">
+            <summary>
+            Creates a new instance of the Currencies Manager class.
+            </summary>
+            <param name="currenciesRepository">The currencies repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.CurrenciesManager.GetCurrenciesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.CurrenciesManager.AddCurrency(FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.DebtAccountsManager">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.#ctor(FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Managers.DebtAccountsManager})">
+            <summary>
+            Creates a new instance of the Debt Account Manager class.
+            </summary>
+            <param name="debtAccountsRepository">The debt accounts repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.GetDebtAccountForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.AddDebtAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.AddAmountToDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.SubtractAmountFromDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.DeleteDebtAccountForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.DebtAccountsManager.UpdateDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager.#ctor(FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager})">
+            <summary>
+            Creates a new instance of the Expense Categories Manager class.
+            </summary>r
+            <param name="expenseCategoriesRepository">The expense categories repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager.GetExpenseCategoriesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager.GetExpenseCategoriesForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager.AddExpenseCategoryForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ExpenseCategoriesManager.DeleteExpenseCategoryForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.IBudgetsManager">
+            <summary>
+            An interface for a manager layer that will interpret results from the DB layer and transform them to a useful model for the controller.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IBudgetsManager.GetBudgetForUserAsync(System.Guid)">
+            <summary>
+            Gets the budget for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of expenses for the user.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IBudgetsManager.CreateExpenseForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest)">
+            <summary>
+            Attempts to create an expense for a user, creating a budget for the user if none exists.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the expense.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IBudgetsManager.DeleteExpenseForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Attempts to delete an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IBudgetsManager.UpdateExpenseForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest)">
+            <summary>
+            Attempts to update an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+            <param name="request">The updated details of the request.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.ICurrenciesManager">
+            <summary>
+            Provides a contract for a manager between the repository and controller layer.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ICurrenciesManager.GetCurrenciesAsync">
+            <summary>
+            Gets the currently listed currencies from the database.
+            </summary>
+            <returns>A collection of currencies.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ICurrenciesManager.AddCurrency(FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest)">
+            <summary>
+            Attempts to persist a new currency to the database.
+            </summary>
+            <param name="request">The details of the new currency.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager">
+            <summary>
+            Provides a contract for managing a user's debt accounts.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.GetDebtAccountForUserAsync(System.Guid)">
+            <summary>
+            Gets the list of debt accounts linked to the user from the database.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of debt accounts.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.AddDebtAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest)">
+            <summary>
+            Creates a new debt account for the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the debt account.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.AddAmountToDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest)">
+            <summary>
+            Adds an amount to the user's debt account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the amount to add.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.SubtractAmountFromDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest)">
+            <summary>
+            Subtracts an amount from a user's debt account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the amount to subtract.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.DeleteDebtAccountForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes a debt account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IDebtAccountsManager.UpdateDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest)">
+            <summary>
+            Updates a user's debt account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the update.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager">
+            <summary>
+            An interface for a manager layer that intercedes between the expense categories repository and the controller.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager.GetExpenseCategoriesAsync">
+            <summary>
+            Gets all listed expense categories.
+            </summary>
+            <returns>An enumeration of expense categories.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager.GetExpenseCategoriesForUserAsync(System.Guid)">
+            <summary>
+            Gets all listed expense categories linked to a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of expense categories linked to a user.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager.AddExpenseCategoryForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest)">
+            <summary>
+            Creates a link between a user and an expense category. If the expense category does not exist, it will be created first. The created expense category will be available for all users.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The expense category details.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.IExpenseCategoriesManager.DeleteExpenseCategoryForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes a mapping between a user and an expense category.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseCategoryId">The expense category's unique identifier.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager">
+            <summary>
+            Provides a contract for managing a user's savings accounts.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.GetSavingsAccountForUserAsync(System.Guid)">
+            <summary>
+            Gets the list of savings accounts linked to the user from the database.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of savings account.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.AddSavingsAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest)">
+            <summary>
+            Creates a new savings account for the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the savings account.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.AddAmountToSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest)">
+            <summary>
+            Adds an amount to the user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the amount to add.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.SubtractAmountFromSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest)">
+            <summary>
+            Subtracts an amount from a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the amount to subtract.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.DeleteSavingsAccountForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes a savings account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.ISavingsAccountManager.UpdateSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest)">
+            <summary>
+            Updates a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the update.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Managers.SavingsAccountManager">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.#ctor(FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Managers.SavingsAccountManager})">
+            <summary>
+            Initializes a new instance of the Savings Account Manager class.
+            </summary>
+            <param name="savingsAccountRepository">The savings account repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.GetSavingsAccountForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.AddSavingsAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.AddAmountToSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.SubtractAmountFromSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.DeleteSavingsAccountForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Managers.SavingsAccountManager.UpdateSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Currency">
+            <summary>
+            A model representation of a currency and it's relevant exchange rate.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Currency.CurrencyId">
+            <summary>
+            The unique identifier associated to the currency.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Currency.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Currency.Name">
+            <summary>
+            The name of the currency, such as US Dollar or South African Rand.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Currency.Country">
+            <summary>
+            The country associated to the currency. This can be null, for currencies such as the Euro.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Currency.RandExchangeRate">
+            <summary>
+            The currency's exchange rate relative to the US Dollar, such as 19.05.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.DebtAccount">
+            <summary>
+            Represents an instance of a debt account for a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.DebtAccountId">
+            <summary>
+            The debt account unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.InitialAmountOwed">
+            <summary>
+            The initial amount owed upon creation within this system.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.CurrentAmountOwed">
+            <summary>
+            The current amount owed.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.TargetPayoffDate">
+            <summary>
+            The target payoff date.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.ActualPayoffDate">
+            <summary>
+            The actual payoff date, if already paid off.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.DebtAccount.Name">
+            <summary>
+            The display friendly name of the debt account.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Expense">
+            <summary>
+            Represents an instance of an expense for a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.BudgetId">
+            <summary>
+            The unique identifier of the budget to which the expense belongs.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.UserId">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.ExpenseId">
+            <summary>
+            The expense unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.DisplayName">
+            <summary>
+            The expense display name.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Expense.Value">
+            <summary>
+            The value of the expense.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.ExpenseCategory">
+            <summary>
+            Represents an instance of an expense category.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.ExpenseCategory.ExpenseCategoryId">
+            <summary>
+            The unique identifier associated to the expense category.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.ExpenseCategory.ExpenseCategoryName">
+            <summary>
+            The name of the expense category.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest">
+            <summary>
+            Represents a request to create an expense for a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest.ExpenseCategoryName">
+            <summary>
+            The name of the expense category. This expense category must exist in the list of expense categories.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest.Value">
+            <summary>
+            The value associated to the expense.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest">
+            <summary>
+            Represents a request to update an expense details for a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest.ExpenseCategoryName">
+            <summary>
+            The expense category name.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest.Value">
+            <summary>
+            The value of the expense.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest">
+            <summary>
+            Represents a request to create a new currency.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest.CurrencyId">
+            <summary>
+            The unique identifier associated to the currency.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest">
+            <summary>
+            Represents a request to add an amount to a savings account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest.Amount">
+            <summary>
+            The amount of money that will be added to the debt account in the account's currency.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest">
+            <summary>
+            Represents a request to create a debt account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest.AmountOwed">
+            <summary>
+            The amount owed on the debt at the time of creation within this system.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest.TargetPayoffDate">
+            <summary>
+            The target payoff date of the debt - either the standard loan payoff date or a date closer than that of your choice.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest.Name">
+            <summary>
+            The display friendly name of the debt account.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest">
+            <summary>
+            Represents a request to reduce the amount owed on a debt account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest.Amount">
+            <summary>
+            The amount of money that will be subtracted from the debt account in the account's currency.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest">
+            <summary>
+            Represents a request to update a debt account details.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest.CurrentAmountOwed">
+            <summary>
+            The current amount owed on the debt account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest.TargetPayoffDate">
+            <summary>
+            The targeted date to pay off the debt.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest.ActualPayoffDate">
+            <summary>
+            The actual date the debt was paid off.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest.Name">
+            <summary>
+            The debt account display friendly name.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest">
+            <summary>
+            Represents a request to create a new expense category
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest.ExpenseCategoryId">
+            <summary>
+            The unique identifier associated to the expense category.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest">
+            <summary>
+            Represents a request to add an amount to a savings account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest.Amount">
+            <summary>
+            The amount of money that will be added to the savings account in the account's currency.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest">
+            <summary>
+            Represents a request to create a savings account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest.SavingsValue">
+            <summary>
+            The value of the savings account at time of creation within this system.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest.SavingsTarget">
+            <summary>
+            The savings target for the account, if any.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest.Name">
+            <summary>
+            The display friendly name of the savings account.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest">
+            <summary>
+            Represents a request to remove subtract an amount to a savings account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest.Amount">
+            <summary>
+            The amount of money that will be subtracted from the savings account in the account's currency.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest">
+            <summary>
+            Represents a request to update a savings account details.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest.CurrentSavingsAmount">
+            <summary>
+            The current savings account balance.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest.TargetSavingsAmount">
+            <summary>
+            The target savings account balance.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest.Name">
+            <summary>
+            The savings account display friendly name.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.Budgets.GetBudgetForUserResponse">
+            <summary>
+            Represents a collection of expenses for a user, forming a budget.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.Budgets.GetBudgetForUserResponse.UserId">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.Budgets.GetBudgetForUserResponse.Expenses">
+            <summary>
+            The user's expenses.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.Currencies.GetCurrencyResponse">
+            <summary>
+            Represents a collection of available currencies.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.Currencies.GetCurrencyResponse.Currencies">
+            <summary>
+            An enumeration of currencies. This could be empty if there are no currencies recorded in the database.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.DebtAccounts.GetDebtAccountsForUserResponse">
+            <summary>
+            Represents a collection of debt accounts owned by a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.DebtAccounts.GetDebtAccountsForUserResponse.UserId">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.DebtAccounts.GetDebtAccountsForUserResponse.DebtAccounts">
+            <summary>
+            An enumeration of debt accounts linked to the user.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.ExpenseCategories.GetExpenseCategoriesForUserResponse">
+            <summary>
+            Represents a collection of expense categories mapped to a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.ExpenseCategories.GetExpenseCategoriesForUserResponse.UserId">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.ExpenseCategories.GetExpenseCategoriesForUserResponse.ExpenseCategories">
+            <summary>
+            A collection of expense categories linked to the user.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.ExpenseCategories.GetExpenseCategoriesResponse">
+            <summary>
+            Represents a collection of available expense categories.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.ExpenseCategories.GetExpenseCategoriesResponse.ExpenseCategories">
+            <summary>
+            An enumeration of expense categories.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.Responses.SavingsAccounts.GetSavingsAccountForUserResponse">
+            <summary>
+            Represents a collection of savings accounts owned by a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.SavingsAccounts.GetSavingsAccountForUserResponse.UserId">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.Responses.SavingsAccounts.GetSavingsAccountForUserResponse.SavingsAccounts">
+            <summary>
+            An enumeration of savings accounts linked to the user.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Models.SavingsAccount">
+            <summary>
+            Represents an instance of a savings account for a user.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.SavingsAccountId">
+            <summary>
+            The savings account unique identifier.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.CountryCurrencyCode">
+            <summary>
+            The country's currency code, such as "ZAR" or "USD".
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.InitialSavingsValue">
+            <summary>
+            The savings account initial value.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.CurrentSavingsValue">
+            <summary>
+            The savings account current value.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.SavingsTarget">
+            <summary>
+            The target value of the savings account.
+            </summary>
+        </member>
+        <member name="P:FinanceAllianx.Web.Api.Models.SavingsAccount.Name">
+            <summary>
+            A display friendly name for the savings account, such "Emergency Savings".
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.BudgetsRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.BudgetsRepository.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.BudgetsRepository})">
+            <summary>
+            Initializes a new instance of the Budgets Repository class.
+            </summary>
+            <param name="connectionProvider">The connection provider.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.BudgetsRepository.GetBudgetForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.BudgetsRepository.CreateExpenseForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.BudgetsRepository.DeleteExpenseForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.BudgetsRepository.UpdateExpenseForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider">
+            <summary>
+            Provides an interface to resolve a connection 
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider.Open">
+            <summary>
+            Opens a connection to the Freedom database.
+            </summary>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper">
+            <summary>
+            Provides a wrapper for the SQL connection to allow for unit testing when using unit testing.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Creates a transaction based on the open connection.
+            </summary>
+            <param name="isolationLevel">The isolation level. By default this is set to ReadCommitted.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper.ExecuteNonQueryAsync(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes a non-query asynchronously.
+            </summary>
+            <param name="query">The query to be run.</param>
+            <param name="parameters">The parameters to pass into the query.</param>
+            <param name="transaction">The transaction.</param>
+            <param name="commandTimeout">The command timeout in seconds.</param>
+            <param name="commandType">The command type.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper.QueryFirstAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Queries the database and returns the first result from the result set. Throws a null reference exception of nothing is returned from the database.
+            </summary>
+            <typeparam name="T">The type of data to be returned from the database.</typeparam>
+            <param name="query">The query to be run.</param>
+            <param name="parameters">The parameters to pass into the query.</param>
+            <param name="transaction">The transaction.</param>
+            <param name="commandTimeout">The command timeout in seconds.</param>
+            <param name="commandType">The command type.</param>
+            <returns>An instance of an object of type T.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper.QueryFirstOrDefaultAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Queries the database and returns the first result from the result set. Returns null if nothing is returned from the database.
+            </summary>
+            <typeparam name="T">The type of data to be returned from the database.</typeparam>
+            <param name="query">The query to be run.</param>
+            <param name="parameters">The parameters to pass into the query.</param>
+            <param name="transaction">The transaction.</param>
+            <param name="commandTimeout">The command timeout in seconds.</param>
+            <param name="commandType">The command type.</param>
+            <returns>An instance of an object of type T, or null.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper.QueryAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Queries data out of database.
+            </summary>
+            <typeparam name="T">The type of data to be returned from the database.</typeparam>
+            <param name="query">The query to be run.</param>
+            <param name="parameters">The parameters to pass into the query.</param>
+            <param name="transaction">The transaction.</param>
+            <param name="commandTimeout">The command timeout in seconds.</param>
+            <param name="commandType">The command type.</param>
+            <returns>An enumeration of objects of type T.</returns>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionProvider.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionWrapper,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionProvider})">
+            <summary>
+            Initializes a new instance of the SqlConnectionProvider class.
+            </summary>
+            <param name="sqlConnectionWrapper">The SQL connection wrapper.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionProvider.Open">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.#ctor(System.Data.IDbConnection,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper})">
+            <summary>
+            Initializes a new private instance of itself.
+            </summary>
+            <param name="dbConnection">The database connection.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.BeginTransaction(System.Data.IsolationLevel)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.ExecuteNonQueryAsync(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.QueryFirstAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.QueryFirstOrDefaultAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.QueryAsync``1(System.String,Dapper.DynamicParameters,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.Connection.SqlConnectionWrapper.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.CurrenciesRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.CurrenciesRepository.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.CurrenciesRepository})">
+            <summary>
+            Creates a new instance of the Currencies Repository class.
+            </summary>
+            <param name="sqlConnectionProvider">The SQL connection provider.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.CurrenciesRepository.GetCurrenciesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.CurrenciesRepository.AddCurrencyAsync(FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository})">
+            <summary>
+            Creates a new instance of the Debt Account Repository class.
+            </summary>
+            <param name="sqlConnectionProvider">The SQL connection provider.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.GetDebtAccountsForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.AddDebtAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.AddAmountToDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.SubtractAmountFromDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.DeleteDebtAccountForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.DebtAccountsRepository.UpdateDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository})">
+            <summary>
+            Initializes a new instance of the Expense Category Repository class.
+            </summary>
+            <param name="connectionProvider">The connection provider.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository.GetExpenseCategoriesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository.GetExpenseCategoriesForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository.AddExpenseCategoryForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ExpenseCategoriesRepository.DeleteExpenseCategoryForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.IBudgetsRepository">
+            <summary>
+            Provides a contract for accessing the budgets portion of the Freedom database.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IBudgetsRepository.GetBudgetForUserAsync(System.Guid)">
+            <summary>
+            Gets the budget for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of expenses for the user.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IBudgetsRepository.CreateExpenseForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.CreateExpenseRequest)">
+            <summary>
+            Attempts to create an expense for a user, creating a budget for the user if none exists.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the expense.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IBudgetsRepository.DeleteExpenseForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Attempts to delete an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IBudgetsRepository.UpdateExpenseForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.Budgets.UpdateExpenseRequest)">
+            <summary>
+            Attempts to update an expense for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseId">The expense unique identifier.</param>
+            <param name="request">The updated details of the request.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.ICurrenciesRepository">
+            <summary>
+            Defines a contract for interacting with currencies in the database.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ICurrenciesRepository.GetCurrenciesAsync">
+            <summary>
+            Gets all currently listed currencies from the database.
+            </summary>
+            <returns>An enumeration of currencies.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ICurrenciesRepository.AddCurrencyAsync(FinanceAllianx.Web.Api.Models.Requests.Currencies.AddCurrencyRequest)">
+            <summary>
+            Attempts to persist a new currency to the database.
+            </summary>
+            <param name="request">The details of the currency to be added.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository">
+            <summary>
+            Provides a contract for interacting with a user's debt accounts in the database.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.GetDebtAccountsForUserAsync(System.Guid)">
+            <summary>
+            Gets the list of debt accounts linked to the user from the database.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of debt account.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.AddDebtAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddDebtAccountRequest)">
+            <summary>
+            Creates a new savings account for the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the debt account.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.AddAmountToDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.AddAmountToDebtAccountRequest)">
+            <summary>
+            Adds an amount to the user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the amount to add.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.SubtractAmountFromDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.SubtractAmountFromDebtAccountRequest)">
+            <summary>
+            Subtracts an amount from a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the amount to subtract.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.DeleteDebtAccountForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes a savings account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IDebtAccountsRepository.UpdateDebtAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.DebtAccounts.UpdateDebtAccountRequest)">
+            <summary>
+            Updates a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="debtAccountId">The debt account unique identifier.</param>
+            <param name="request">The details of the update.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository">
+            <summary>
+            Provides a contract for interacting with the expense categories parts of the database.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository.GetExpenseCategoriesAsync">
+            <summary>
+            Gets all the available expense categories from the database.
+            </summary>
+            <returns>An enumeration of expense categories.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository.GetExpenseCategoriesForUserAsync(System.Guid)">
+            <summary>
+            Gets all the expense categories linked to the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of expense categories linked to the user.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository.AddExpenseCategoryForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.ExpenseCategories.AddExpenseCategoryRequest)">
+            <summary>
+            Links a user to an expense category. If the expense category does not exist, it will be created first and become available to all users.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The expense category details.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.IExpenseCategoriesRepository.DeleteExpenseCategoryForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes the mapping between an expense category and a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="expenseCategoryId">The expense category's unique identifier.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository">
+            <summary>
+            Provides a contract for interacting with the database and a variety of savings accounts.
+            </summary>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.GetSavingsAccountForUserAsync(System.Guid)">
+            <summary>
+            Gets the list of savings accounts linked to the user from the database.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <returns>An enumeration of savings account.</returns>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.AddSavingsAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest)">
+            <summary>
+            Creates a new savings account for the user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="request">The details of the savings account.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.AddAmountToSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest)">
+            <summary>
+            Adds an amount to the user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the amount to add.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.SubtractAmountFromSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest)">
+            <summary>
+            Subtracts an amount from a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the amount to subtract.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.DeleteSavingsAccountForUserAsync(System.Guid,System.Guid)">
+            <summary>
+            Deletes a savings account for a user.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.ISavingsAccountRepository.UpdateSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest)">
+            <summary>
+            Updates a user's savings account.
+            </summary>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="savingsAccountId">The savings account unique identifier.</param>
+            <param name="request">The details of the update.</param>
+        </member>
+        <member name="T:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.#ctor(FinanceAllianx.Web.Api.Repositories.Connection.ISqlConnectionProvider,Microsoft.Extensions.Logging.ILogger{FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository})">
+            <summary>
+            Initializes a new instance of the Savings Account Repository class.
+            </summary>
+            <param name="sqlConnectionProvider"></param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.GetSavingsAccountForUserAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.AddSavingsAccountForUserAsync(System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.AddAmountToSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.AddAmountToSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.SubtractAmountFromSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.SubtractAmountFromSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.DeleteSavingsAccountForUserAsync(System.Guid,System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:FinanceAllianx.Web.Api.Repositories.SavingsAccountRepository.UpdateSavingsAccountForUserAsync(System.Guid,System.Guid,FinanceAllianx.Web.Api.Models.Requests.SavingsAccounts.UpdateSavingsAccountRequest)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

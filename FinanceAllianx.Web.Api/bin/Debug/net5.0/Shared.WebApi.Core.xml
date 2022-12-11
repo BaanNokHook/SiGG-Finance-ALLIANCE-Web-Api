@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shared.WebApi.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Shared.WebApi.Core.Builders.SwaggerServicesBuilder">
+            <summary>
+            A builder class containing a variety of extension methods to make setting up swagger docs much simpler.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the swagger builder extensions class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithApiVersion(System.Int32)">
+            <summary>
+            Sets the API version.
+            </summary>
+            <param name="apiVersion">The API version.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithApiTitle(System.String)">
+            <summary>
+            Sets the API title.
+            </summary>
+            <param name="title">The API title.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithApiDescription(System.String)">
+            <summary>
+            Sets the API description.
+            </summary>
+            <param name="description">The API description.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithXmlComments(System.String)">
+            <summary>
+            Appends to the list of XML comments, the provided XML comments.
+            </summary>
+            <param name="xmlCommentPath">The path to the XML comments.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithCoreXmlDocs(System.Boolean)">
+            <summary>
+            Determines whether to include the XML documentation from this library in your Swagger docs.
+            </summary>
+            <param name="includeCoreXmlDocs">A boolean indicating whether or not to include the XML documentation.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.WithJwtAuthentication(System.Boolean)">
+            <summary>
+            Determines whether or not to JWT authentication in the Swagger documentation with the [Authorize] attribute.
+            </summary>
+            <param name="useJwtAuthentication">Set to true if you are using JWT authentication.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Builders.SwaggerServicesBuilder.BuildSwaggerServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Builds the Swagger services.
+            </summary>
+            <param name="services">The services collection.</param>
+        </member>
+        <member name="T:Shared.WebApi.Core.Errors.ErrorCodes">
+            <summary>
+            A list of error codes that can be returned from the shared library.
+            </summary>
+        </member>
+        <member name="F:Shared.WebApi.Core.Errors.ErrorCodes.UnauthorizedRequest">
+            <summary>
+            The token provided does not provide access to this resource.
+            </summary>
+        </member>
+        <member name="F:Shared.WebApi.Core.Errors.ErrorCodes.ForbiddenRequest">
+            <summary>
+            The request was forbidden from proceeding.
+            </summary>
+        </member>
+        <member name="T:Shared.WebApi.Core.Errors.ErrorResponse">
+            <summary>
+            A base error response model that will represent any errors that are handled by the API.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Errors.ErrorResponse.ErrorCode">
+            <summary>
+            The error code correlating to the error that occurred.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Errors.ErrorResponse.ErrorDetails">
+            <summary>
+            The details of the error that occurred, including the stacktrace or any other relevant information.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Errors.ErrorResponse.ErrorMessage">
+            <summary>
+            A user friendly description of what went wrong.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Errors.ErrorResponse.InnerExceptions">
+            <summary>
+            An enumeration of any inner exceptions that may have occurred.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Errors.ErrorResponse.ToString">
+            <summary>
+            Returns a JSON string representation of this instance.
+            </summary>
+        </member>
+        <member name="T:Shared.WebApi.Core.Errors.IErrorMessageSelector">
+            <summary>
+            A contract for resolving user friendly error messages.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Errors.IErrorMessageSelector.GetErrorMessage(System.Int32)">
+            <summary>
+            Gets a user friendly error message of what went wrong based off the error code.
+            </summary>
+            <param name="errorCode">The error code.</param>
+            <returns>The user friendly message.</returns>
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.BadRequestException">
+            <summary>
+            Represents an instance of a bad request.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BadRequestException.#ctor">
+            <summary>
+            Creates a new instance of the BadRequestException class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BadRequestException.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of the BadRequestException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="errorCode"></param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BadRequestException.#ctor(System.String,System.Exception,System.Int32)">
+            <summary>
+            Creates a new instance of the BadRequestException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BadRequestException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the BadRequestException class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BadRequestException.GetHttpStatusCode">
+            <inheritdoc />
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.BaseHttpException">
+            <summary>
+            Represents a base HTTP exception.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BaseHttpException.#ctor">
+            <summary>
+            Creates a new instance of the BaseHttpException class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BaseHttpException.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of the BaseHttpException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BaseHttpException.#ctor(System.String,System.Exception,System.Int32)">
+            <summary>
+            Creates a new instance of the BaseHttpException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The exception.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BaseHttpException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the BaseHttpException class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="streamingContext">The streaming context.</param>
+        </member>
+        <member name="P:Shared.WebApi.Core.Exceptions.BaseHttpException.ErrorCode">
+            <summary>
+            The error code correlating to the error that occurred.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.BaseHttpException.GetHttpStatusCode">
+            <summary>
+            Gets the System.Net.HttpStatusCode associated with the exception that was thrown.
+            </summary>
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.ForbiddenException">
+            <summary>
+            An exception to represents a 403 - Forbidden response.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.ForbiddenException.#ctor">
+            <summary>
+            Creates a new instance of the ForbiddenException class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.ForbiddenException.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of the ForbiddenException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.ForbiddenException.#ctor(System.String,System.Exception,System.Int32)">
+            <summary>
+            Creates a new instance of the ForbiddenException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.ForbiddenException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the ForbiddenException class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.ForbiddenException.GetHttpStatusCode">
+            <inheritdoc />
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.GlobalExceptionHandler">
+            <summary>
+            A global exception handler middleware to handle errors on the API and generate valid error response.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.GlobalExceptionHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Shared.WebApi.Core.Errors.IErrorMessageSelector,Microsoft.Extensions.Logging.ILogger{Shared.WebApi.Core.Exceptions.GlobalExceptionHandler})">
+            <summary>
+            Initializes a new instance of the GlobalExceptionHandler class.
+            </summary>
+            <param name="next">The next response.</param>
+            <param name="errorMessageSelector">The error message selector.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.GlobalExceptionHandler.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the action asynchronously.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.NotFoundException">
+            <summary>
+            Represents an instance of a not found exception.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.NotFoundException.#ctor">
+            <summary>
+            Creates a new instance of the NotFoundException class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.NotFoundException.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of the NotFoundException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.NotFoundException.#ctor(System.String,System.Exception,System.Int32)">
+            <summary>
+            Creates a new instance of the NotFoundException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.NotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the NotFoundException class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.NotFoundException.GetHttpStatusCode">
+            <inheritdoc />
+        </member>
+        <member name="T:Shared.WebApi.Core.Exceptions.UnauthorizedException">
+            <summary>
+            An exception to represents a 401 - Unauthorized response.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.UnauthorizedException.#ctor">
+            <summary>
+            Creates a new instance of the UnauthorizedException class.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.UnauthorizedException.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates a new instance of the UnauthorizedException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.UnauthorizedException.#ctor(System.String,System.Exception,System.Int32)">
+            <summary>
+            Creates a new instance of the UnauthorizedException class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+            <param name="errorCode">The error code.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.UnauthorizedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the UnauthorizedException class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Exceptions.UnauthorizedException.GetHttpStatusCode">
+            <inheritdoc />
+        </member>
+        <member name="T:Shared.WebApi.Core.Extensions.AuthenticationExtension">
+            <summary>
+            A static class the contains extension methods for authentication purposes.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Extensions.AuthenticationExtension.AddTokenAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            An extension method to add JWT token authentication to any method/class protected by the [Authorize] attribute.
+            </summary>
+            <param name="services">The services collection.</param>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Shared.WebApi.Core.Extensions.GlobalExceptionHandlerExtensions">
+            <summary>
+            A static class containing a variety of extension methods to make global exception handling easier.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Extensions.GlobalExceptionHandlerExtensions.UseGlobalExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Encapsulates the registration of the global exception handler to simplify use in a project.
+            </summary>
+            <param name="app">The application builder.</param>
+        </member>
+        <member name="T:Shared.WebApi.Core.Extensions.SwaggerExtensions">
+            <summary>
+            A set of extension methods designed to simplify the use of Swagger documentation.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Extensions.SwaggerExtensions.UseSwaggerDocs(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Int32,System.String)">
+            <summary>
+            Use the given Swagger documentation configuration.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="apiVersion">The API version.</param>
+            <param name="apiTitle">The API title.</param>
+        </member>
+        <member name="T:Shared.WebApi.Core.Security.AuthOperationFilter">
+            <summary>
+            A custom authorization filter to include the padlock icon on protected API endpoints.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.AuthOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:Shared.WebApi.Core.Security.IJwtService">
+            <summary>
+            A contract for JWT services.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.IJwtService.GenerateSecurityToken(System.String,System.DateTime)">
+            <summary>
+            Generates a security tokens based off the user's email.
+            </summary>
+            <param name="email">The user's email.</param>
+            <param name="now">The system's current date and time.</param>
+            <returns>An encoded JWT token.</returns>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.IJwtService.GenerateSecurityToken(System.String,System.Int32,System.DateTime)">
+            <summary>
+            Generates a security tokens based off the user's email.
+            </summary>
+            <param name="email">The user's email.</param>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="now">The system's current date and time.</param>
+            <returns>An encoded JWT token.</returns>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.IJwtService.GenerateSecurityToken(System.String,System.Guid,System.DateTime)">
+            <summary>
+            Generates a security tokens based off the user's email.
+            </summary>
+            <param name="email">The user's email.</param>
+            <param name="userId">The user's unique identifier.</param>
+            <param name="now">The system's current date and time.</param>
+            <returns>An encoded JWT token.</returns>
+        </member>
+        <member name="T:Shared.WebApi.Core.Security.JwtResponse">
+            <summary>
+            An object containing the JWT response properties.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Security.JwtResponse.AccessToken">
+            <summary>
+            The access token.
+            </summary>
+        </member>
+        <member name="P:Shared.WebApi.Core.Security.JwtResponse.ExpiresInMinutes">
+            <summary>
+            The expiration time in minutes.
+            </summary>
+        </member>
+        <member name="T:Shared.WebApi.Core.Security.JwtService">
+            <summary>
+            A class that provides services for generating JWT tokens.
+            </summary>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.JwtService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the JWT service.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.JwtService.GenerateSecurityToken(System.String,System.DateTime)">
+            <inheritdoc />
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.JwtService.GenerateSecurityToken(System.String,System.Int32,System.DateTime)">
+            <inheritdoc />
+        </member>
+        <member name="M:Shared.WebApi.Core.Security.JwtService.GenerateSecurityToken(System.String,System.Guid,System.DateTime)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

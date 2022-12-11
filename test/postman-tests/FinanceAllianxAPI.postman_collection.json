@@ -1,0 +1,836 @@
+{
+	"info": {
+		"_postman_id": "a8adfc87-7017-4c98-a0e4-bf5c894cb4cc",
+		"name": "Fincial Peace API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Budgets",
+			"item": [
+				{
+					"name": "Get Budget for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"budgets",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Expense for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"expenseCategoryName\": \"Utilities\",\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"value\": 750.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"budgets",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"budgets",
+								"user",
+								"{{userId}}",
+								"expense",
+								"b4d81410-977f-11ea-904a-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Expense for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"expenseCategoryName\": \"Utilities\",\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"value\": 1000.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"budgets",
+								"user",
+								"{{userId}}",
+								"expense",
+								"b4d81410-977f-11ea-904a-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Currencies",
+			"item": [
+				{
+					"name": "Get Currences",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/currencies",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"currencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Currency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"country\": \"Namibia\",\n\t\"name\": \"Namibian Dollar\",\n\t\"countryCurrencyCode\": \"NAD\",\n\t\"randExchangeRate\": 1.18\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/currencies",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"currencies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Expense Categories",
+			"item": [
+				{
+					"name": "Get Expense Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/expenseCategories",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"expenseCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Expense Categories for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"expenseCategories",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Expense Category for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"expenseCategoryName\": \"Holidays & Travel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"expenseCategories",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense Category for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}/expense/940d65aa-913f-11ea-904a-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"expenseCategories",
+								"user",
+								"{{userId}}",
+								"expense",
+								"940d65aa-913f-11ea-904a-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Savings Accounts",
+			"item": [
+				{
+					"name": "Get Savings Accounts for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Savings Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"savingsValue\": 50107,\n\t\"savingsTarget\": 150000,\n\t\"name\": \"Emergency Savings\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Amount to Savings Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/addAmount",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}",
+								"savingsAccount",
+								"94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+								"addAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subtract Amount from Savings Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/subtractAmount",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}",
+								"savingsAccount",
+								"94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+								"subtractAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Savings Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}",
+								"savingsAccount",
+								"94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Savings Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"currentSavingsAmount\": 50000,\n\t\"targetSavingsAmount\": 100000,\n\t\"name\": \"Emergency savings\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"savingsAccounts",
+								"user",
+								"{{userId}}",
+								"savingsAccount",
+								"94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Debt Accounts",
+			"item": [
+				{
+					"name": "Get Debt Accounts for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Debt Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"amountOwed\": 250461,\n\t\"targetPayoffDate\": \"2025-10-29\",\n\t\"name\": \"Car loan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Amount to Debt Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/addAmount",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}",
+								"debtAccount",
+								"81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+								"addAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subtract Amount from Debt Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/subtractAmount",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}",
+								"debtAccount",
+								"81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+								"subtractAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Debt Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}",
+								"debtAccount",
+								"81fe1442-a187-11ea-9d4f-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Debt Account for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"countryCurrencyCode\": \"ZAR\",\n\t\"currentAmountOwed\": 250461.28,\n\t\"targetPayoffDate\": \"2024-10-29\",\n\t\"actualPayoffDate\": \"2022-10-29\",\n\t\"name\": \"Ford Fiesta WesBank Vehicle Loan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+							"host": [
+								"{{FinancialPeaceApi}}"
+							],
+							"path": [
+								"debtAccounts",
+								"user",
+								"{{userId}}",
+								"debtAccount",
+								"81fe1442-a187-11ea-9d4f-7c04d0bb43a8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Test Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2b754c0-255e-4f46-8b5f-f6387bd47be1",
+						"exec": [
+							"let jsonData = JSON.parse(responseBody);",
+							"pm.environment.set(\"AccessToken\", jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{FinancialPeaceApi}}/tokens",
+					"host": [
+						"{{FinancialPeaceApi}}"
+					],
+					"path": [
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
