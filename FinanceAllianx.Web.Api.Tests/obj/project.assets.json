@@ -7581,11 +7581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api.Tests\\FinanceAllianx.Web.Api.Tests.csproj",
+      "projectUniqueName": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api.Tests\\FinanceAllianx.Web.Api.Tests.csproj",
       "projectName": "FinanceAllianx.Web.Api.Tests",
-      "projectPath": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api.Tests\\FinanceAllianx.Web.Api.Tests.csproj",
+      "projectPath": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api.Tests\\FinanceAllianx.Web.Api.Tests.csproj",
       "packagesPath": "C:\\Users\\pnaja\\.nuget\\packages\\",
-      "outputPath": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api.Tests\\obj\\",
+      "outputPath": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7607,8 +7607,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj": {
-              "projectPath": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj"
+            "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj": {
+              "projectPath": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj"
             }
           }
         }

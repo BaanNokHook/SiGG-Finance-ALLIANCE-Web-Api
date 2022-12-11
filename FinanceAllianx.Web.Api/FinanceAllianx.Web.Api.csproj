@@ -16,6 +16,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net5.0\FinancialPeace.Web.Api.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net5.0\FinancialPeace.Web.Api.MvcApplicationPartsAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.35" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.3" />
@@ -35,5 +43,134 @@
     <Content Include="..\..\Dockerfile">
       <Link>Dockerfile</Link>
     </Content>
+    <Content Include="bin\Debug\net5.0\appsettings.docker.json" />
+    <Content Include="bin\Debug\net5.0\appsettings.json" />
+    <Content Include="bin\Debug\net5.0\BouncyCastle.Crypto.xml" />
+    <Content Include="bin\Debug\net5.0\Dapper.xml" />
+    <Content Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.deps.json" />
+    <Content Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.xml" />
+    <Content Include="bin\Debug\net5.0\FinancialPeace.Web.Api.deps.json" />
+    <Content Include="bin\Debug\net5.0\FinancialPeace.Web.Api.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\net5.0\FinancialPeace.Web.Api.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\FinancialPeace.Web.Api.xml" />
+    <Content Include="bin\Debug\net5.0\Google.Protobuf.xml" />
+    <Content Include="bin\Debug\net5.0\K4os.Compression.LZ4.Streams.xml" />
+    <Content Include="bin\Debug\net5.0\K4os.Compression.LZ4.xml" />
+    <Content Include="bin\Debug\net5.0\K4os.Hash.xxHash.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="bin\Debug\net5.0\Microsoft.OpenApi.xml" />
+    <Content Include="bin\Debug\net5.0\MySql.Data.xml" />
+    <Content Include="bin\Debug\net5.0\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\net5.0\NLog.Extensions.Logging.xml" />
+    <Content Include="bin\Debug\net5.0\NLog.Web.AspNetCore.xml" />
+    <Content Include="bin\Debug\net5.0\NLog.xml" />
+    <Content Include="bin\Debug\net5.0\Renci.SshNet.xml" />
+    <Content Include="bin\Debug\net5.0\Shared.WebApi.Core.xml" />
+    <Content Include="bin\Debug\net5.0\SshNet.Security.Cryptography.xml" />
+    <Content Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.xml" />
+    <Content Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.xml" />
+    <Content Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.xml" />
+    <Content Include="bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net5.0\FinancialPeace.Web.Api.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\FinanceAllianx.Web.Api.csproj.nuget.dgspec.json" />
+    <Content Include="obj\FinancialPeace.Web.Api.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\ExpenseCategories\" />
+    <Folder Include="Controllers\SavingsAccounts\" />
+    <Folder Include="Errors\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Managers\" />
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net5.0\BouncyCastle.Crypto.dll" />
+    <None Include="bin\Debug\net5.0\Dapper.dll" />
+    <None Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.dll" />
+    <None Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.exe" />
+    <None Include="bin\Debug\net5.0\FinanceAllianx.Web.Api.pdb" />
+    <None Include="bin\Debug\net5.0\FinancialPeace.Web.Api.dll" />
+    <None Include="bin\Debug\net5.0\FinancialPeace.Web.Api.exe" />
+    <None Include="bin\Debug\net5.0\FinancialPeace.Web.Api.pdb" />
+    <None Include="bin\Debug\net5.0\Google.Protobuf.dll" />
+    <None Include="bin\Debug\net5.0\K4os.Compression.LZ4.dll" />
+    <None Include="bin\Debug\net5.0\K4os.Compression.LZ4.Streams.dll" />
+    <None Include="bin\Debug\net5.0\K4os.Hash.xxHash.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net5.0\Microsoft.OpenApi.pdb" />
+    <None Include="bin\Debug\net5.0\MySql.Data.dll" />
+    <None Include="bin\Debug\net5.0\Newtonsoft.Json.dll" />
+    <None Include="bin\Debug\net5.0\nlog.config" />
+    <None Include="bin\Debug\net5.0\NLog.dll" />
+    <None Include="bin\Debug\net5.0\NLog.Extensions.Logging.dll" />
+    <None Include="bin\Debug\net5.0\NLog.Web.AspNetCore.dll" />
+    <None Include="bin\Debug\net5.0\Renci.SshNet.dll" />
+    <None Include="bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net5.0\Shared.WebApi.Core.dll" />
+    <None Include="bin\Debug\net5.0\Shared.WebApi.Core.pdb" />
+    <None Include="bin\Debug\net5.0\SshNet.Security.Cryptography.dll" />
+    <None Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll" />
+    <None Include="bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll" />
+    <None Include="bin\Debug\net5.0\Ubiety.Dns.Core.dll" />
+    <None Include="bin\Debug\net5.0\Zstandard.Net.dll" />
+    <None Include="obj\Debug\net5.0\apphost.exe" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.assets.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.CopyComplete" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.pdb" />
+    <None Include="obj\Debug\net5.0\FinanceAllianx.Web.Api.RazorTargetAssemblyInfo.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.assets.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.csproj.CopyComplete" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.pdb" />
+    <None Include="obj\Debug\net5.0\FinancialPeace.Web.Api.RazorTargetAssemblyInfo.cache" />
+    <None Include="obj\Debug\net5.0\refint\FinanceAllianx.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\refint\FinancialPeace.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\ref\FinanceAllianx.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\ref\FinancialPeace.Web.Api.dll" />
+    <None Include="obj\Debug\net5.0\staticwebassets\FinanceAllianx.Web.Api.StaticWebAssets.Manifest.cache" />
+    <None Include="obj\Debug\net5.0\staticwebassets\FinanceAllianx.Web.Api.StaticWebAssets.Pack.cache" />
+    <None Include="obj\Debug\net5.0\staticwebassets\FinancialPeace.Web.Api.StaticWebAssets.Manifest.cache" />
+    <None Include="obj\Debug\net5.0\staticwebassets\FinancialPeace.Web.Api.StaticWebAssets.Pack.cache" />
+    <None Include="obj\FinanceAllianx.Web.Api.csproj.nuget.g.props" />
+    <None Include="obj\FinanceAllianx.Web.Api.csproj.nuget.g.targets" />
+    <None Include="obj\FinancialPeace.Web.Api.csproj.nuget.g.props" />
+    <None Include="obj\FinancialPeace.Web.Api.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
   </ItemGroup>
 </Project>

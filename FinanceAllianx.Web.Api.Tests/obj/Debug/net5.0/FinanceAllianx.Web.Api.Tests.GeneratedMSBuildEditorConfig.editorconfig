@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FinanceAllianx.Web.Api.Tests
-build_property.ProjectDir = D:\LaCasaDePapel\SiGG-Finance-ALLIANCE-Web-Api\src\FinanceAllianx.Web.Api.Tests\
+build_property.ProjectDir = D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api.Tests\

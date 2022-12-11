@@ -7000,11 +7000,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj",
+      "projectUniqueName": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj",
       "projectName": "FinanceAllianx.Web.Api",
-      "projectPath": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj",
+      "projectPath": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api\\FinanceAllianx.Web.Api.csproj",
       "packagesPath": "C:\\Users\\pnaja\\.nuget\\packages\\",
-      "outputPath": "D:\\LaCasaDePapel\\SiGG-Finance-ALLIANCE-Web-Api\\src\\FinanceAllianx.Web.Api\\obj\\",
+      "outputPath": "D:\\LaCasaDePapel\\SiGG\\SiGG-Finance-ALLIANCE-Web-Api\\FinanceAllianx.Web.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

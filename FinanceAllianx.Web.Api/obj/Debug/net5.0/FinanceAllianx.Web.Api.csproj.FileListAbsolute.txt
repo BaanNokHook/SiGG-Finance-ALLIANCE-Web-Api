@@ -87,3 +87,13 @@ D:\LaCasaDePapel\SiGG-Finance-ALLIANCE-Web-Api\src\FinanceAllianx.Web.Api\obj\De
 D:\LaCasaDePapel\SiGG-Finance-ALLIANCE-Web-Api\src\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.pdb
 D:\LaCasaDePapel\SiGG-Finance-ALLIANCE-Web-Api\src\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.genruntimeconfig.cache
 D:\LaCasaDePapel\SiGG-Finance-ALLIANCE-Web-Api\src\FinanceAllianx.Web.Api\obj\Debug\net5.0\ref\FinanceAllianx.Web.Api.dll
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.AssemblyReference.cache
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.AssemblyInfoInputs.cache
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.AssemblyInfo.cs
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.CoreCompileInputs.cache
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.dll
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\refint\FinanceAllianx.Web.Api.dll
+D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.pdb
