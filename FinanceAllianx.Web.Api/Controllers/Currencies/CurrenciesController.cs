@@ -19,7 +19,8 @@ namespace FinanceAllianx.Web.Api.Controllers.Currencies
     public class CurrenciesController : ControllerBase
     {
         private readonly ICurrenciesManager currenciesManager;
-        private readonly ILogger<CurrenciesController> _logger;  
+        private readonly ILogger<CurrenciesController> _logger;
+        private object _currenciesManager;
 
         public CurrenciesController(  
             ICurrenciesManager currenciesManager,  

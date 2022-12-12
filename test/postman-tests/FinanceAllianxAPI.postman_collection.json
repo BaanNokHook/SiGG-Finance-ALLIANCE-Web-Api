@@ -24,9 +24,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/budgets/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"budgets",
@@ -62,9 +62,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/budgets/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"budgets",
@@ -91,9 +91,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"budgets",
@@ -131,9 +131,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/budgets/user/{{userId}}/expense/b4d81410-977f-11ea-904a-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"budgets",
@@ -168,9 +168,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/currencies",
+							"raw": "{{FinanceAllianxApi}}/currencies",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"currencies"
@@ -204,9 +204,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/currencies",
+							"raw": "{{FinanceAllianxApi}}/currencies",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"currencies"
@@ -237,9 +237,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/expenseCategories",
+							"raw": "{{FinanceAllianxApi}}/expenseCategories",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"expenseCategories"
@@ -264,9 +264,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/expenseCategories/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"expenseCategories",
@@ -302,9 +302,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/expenseCategories/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"expenseCategories",
@@ -331,9 +331,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/expenseCategories/user/{{userId}}/expense/940d65aa-913f-11ea-904a-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/expenseCategories/user/{{userId}}/expense/940d65aa-913f-11ea-904a-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"expenseCategories",
@@ -368,9 +368,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -406,9 +406,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -444,9 +444,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/addAmount",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/addAmount",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -485,9 +485,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/subtractAmount",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8/subtractAmount",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -517,9 +517,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -557,9 +557,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/savingsAccounts/user/{{userId}}/savingsAccount/94b0dc1e-a042-11ea-9d4f-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"savingsAccounts",
@@ -594,9 +594,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -632,9 +632,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -670,9 +670,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/addAmount",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/addAmount",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -711,9 +711,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/subtractAmount",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8/subtractAmount",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -743,9 +743,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -783,9 +783,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{FinancialPeaceApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
+							"raw": "{{FinanceAllianxApi}}/debtAccounts/user/{{userId}}/debtAccount/81fe1442-a187-11ea-9d4f-7c04d0bb43a8",
 							"host": [
-								"{{FinancialPeaceApi}}"
+								"{{FinanceAllianxApi}}"
 							],
 							"path": [
 								"debtAccounts",
@@ -820,9 +820,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{FinancialPeaceApi}}/tokens",
+					"raw": "{{FinanceAllianxApi}}/tokens",
 					"host": [
-						"{{FinancialPeaceApi}}"
+						"{{FinanceAllianxApi}}"
 					],
 					"path": [
 						"tokens"

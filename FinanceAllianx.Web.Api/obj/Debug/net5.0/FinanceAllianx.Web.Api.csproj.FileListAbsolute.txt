@@ -94,6 +94,3 @@ D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\D
 D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.csproj.CoreCompileInputs.cache
 D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.MvcApplicationPartsAssemblyInfo.cache
-D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.dll
-D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\refint\FinanceAllianx.Web.Api.dll
-D:\LaCasaDePapel\SiGG\SiGG-Finance-ALLIANCE-Web-Api\FinanceAllianx.Web.Api\obj\Debug\net5.0\FinanceAllianx.Web.Api.pdb

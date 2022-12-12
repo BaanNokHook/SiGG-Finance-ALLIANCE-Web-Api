@@ -1,23 +1,23 @@
 version: "3.9"
 
 services:
-  financialpeace-database:
-    image: krylixza/financialpeace-database:latest
-    container_name: financialpeace-database
+  FinanceAllianx-database:
+    image: krylixza/FinanceAllianx-database:latest
+    container_name: FinanceAllianx-database
     networks:
-      - financialpeace
+      - FinanceAllianx
     ports:
       - 3306:3306
 
-  financialpeace-web-api:
-    image: krylixza/financialpeace-web-api:latest-arm
-    container_name: financialpeace-web-api
+  FinanceAllianx-web-api:
+    image: krylixza/FinanceAllianx-web-api:latest-arm
+    container_name: FinanceAllianx-web-api
     depends_on: 
-      - financialpeace-database
+      - FinanceAllianx-database
     networks:
-      - financialpeace
+      - FinanceAllianx
     ports: 
       - 5000:5000
 
 networks:
-  financialpeace:
+  FinanceAllianx:

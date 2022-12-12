@@ -17,9 +17,10 @@ namespace FinanceAllianx.Web.Api.Controllers.Budgets
     [Authorize]
     [Route("budgets")]
 
-    public class BudgetsCotroller : ControllerBase
+    public class BudgetsController : ControllerBase
     {
         private readonly IBudgetsManager budgetsManager;
+        private IBudgetManager _budgetsManager;
         private readonly ILogger<BudgetsController> _logger;
 
         public BudgetsController(
@@ -39,8 +40,8 @@ namespace FinanceAllianx.Web.Api.Controllers.Budgets
         public async Task<IActionResult> GetBudgetForUser([Required][FromRoute] Guid userId)
         {
             _logger.LogInformation($"GetBudgetForUser start. UserId: {userId}");
-            var response = await _budgetsManager.GetBudgetForUserAsync(userId);
-            _logger.LogInformation($"GetBudgetForUser end. UserId: {userId]");
+            var response = await _budgetsManager.GetBudgetForUser(userId);
+            _logger.LogInformation($"GetBudgetForUser end. UserId: {userId}");
             return Ok(response);
         }
 
@@ -55,7 +56,7 @@ namespace FinanceAllianx.Web.Api.Controllers.Budgets
             [Required][FromBody] CreateExpenseRequest request)
         {
             _logger.LogInformation($"CreateExpenseForUser start. UserId: {userId}");
-            await _budgetsManager.CreateExpenseForUserAsync(userId, request);
+            object value = await _budgetsManager.CreateExpenseForUserAsync(userId, request);
             _logger.LogInformation($"CreateExpenseForUser end. UserId: {userId}");
             return Accepted();
         }
@@ -87,10 +88,19 @@ namespace FinanceAllianx.Web.Api.Controllers.Budgets
             [Required][FromBody] UpdateExpenseRequest request)
 
         {
-            _logger.LogInformation($"UpdateExpenseForUser start. UserId: {UserId}. ExpenseId: {expenseId}");
+            _logger.LogInformation($"UpdateExpenseForUser start. UserId: {userId}. ExpenseId: {expenseId}");
             await _budgetsManager.UpdateExpenseForUserAsync(userId, expenseId, request);
             _logger.LogInformation($"UpdateExpenseForUser end. UserId: {userId}. ExpenseId: {expenseId}");
             return Ok();
         }
     }
+
+    public interface IBudgetManager
+    {
+        Task<object> CreateExpenseForUserAsync(Guid userId, CreateExpenseRequest request);
+        Task DeleteExpenseForUserAsync(Guid userId, Guid expenseId);
+        Task GetBudgetForUser(Guid userId);
+        Task UpdateExpenseForUserAsync(Guid userId, Guid expenseId, UpdateExpenseRequest request);
+    }
+
 }
